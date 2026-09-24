@@ -140,7 +140,7 @@ body.landing {
   max-width: 30ch;
 }
 .sheet-deck { margin-top: var(--s4); font-size: 16px; line-height: 1.6; color: var(--graphite); max-width: 52ch; }
-.sheet-cta { margin-top: var(--s5); }
+.sheet-ctas { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s5); }
 
 @media (max-height: 760px) and (min-width: 860px) {
   .sheet-deck { display: none; }
