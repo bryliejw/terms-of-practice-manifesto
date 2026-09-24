@@ -1,0 +1,46 @@
+/* Terms of Practice — design tokens
+   Solid fills only. Never opacity to make a colour. */
+:root {
+  /* colour */
+  --ink: #0B0B0C;          /* text, rules, redaction, closing field */
+  --paper: #EEECE4;        /* page ground */
+  --sheet: #FFFFFF;        /* raised documents and cards */
+  --scan: #D6D2C4;         /* second surface, table rows */
+  --graphite: #5E5C56;     /* secondary text, struck terms */
+  --signal: #1F3FE0;       /* flags, full-bleed fields, links */
+  --signal-field: #8FA2F5; /* unread words, mono rows */
+  --signal-mid: #6F88F1;   /* unread words, weight 4 rows */
+  --signal-deep: #4F6CEE;  /* unread words, weight 5 rows */
+  --ink-2: #2A2A2C;        /* empty counter cells */
+  --highlighter: #DCF23C;  /* restored language, hover and active */
+  --white: #FFFFFF;
+
+  /* type */
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --mono: "Courier Prime", "Courier New", Courier, monospace;
+  --cond: "Archivo", "Arial Narrow", sans-serif;
+
+  --fs-banner: clamp(96px, 14vw, 220px);
+  --fs-display: clamp(56px, 9vw, 144px);
+  --fs-title: clamp(64px, 11.4vw, 164px);
+  --fs-head: clamp(48px, 6.6vw, 96px);
+  --fs-statement: clamp(36px, 5.8vw, 84px);
+  --fs-h2: 56px;
+  --fs-pull: clamp(34px, 3vw, 44px);
+  --fs-body: clamp(19px, 1.45vw, 21px);
+  --fs-label: 13px;
+
+  /* layout */
+  --margin: clamp(20px, 6.6vw, 96px);
+  --gutter: 16px;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+  --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px; --s10: 128px;
+  --section-gap: clamp(96px, 9vw, 128px);
+
+  /* motion */
+  --strike: 350ms;
+  --pop: 180ms;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+
+  --header: 84px;
+}
