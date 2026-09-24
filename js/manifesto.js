@@ -2,7 +2,9 @@
 (async function () {
   'use strict';
   const { $, $$, clamp, lerp } = TOP;
-  const HEADER = 84;
+  let HEADER = 84;
+  const readHeader = () => { HEADER = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header')) || 84; };
+  const mqSmall = window.matchMedia('(max-width: 599.98px)');
   const behavior = () => (TOP.reduced ? 'auto' : 'smooth');
 
   let data;
@@ -83,6 +85,7 @@
   });
 
   function measure() {
+    readHeader();
     S.forEach((s) => {
       const r = s.el.getBoundingClientRect();
       s.top = r.top + window.scrollY;
@@ -227,6 +230,20 @@
     setCurrent(cur);
     revealBar(line);
     renderScene();
+    tuckBar(y);
+  }
+
+  /* small screens: tuck the position bar while reading down, bring it back on the way up
+     and whenever the 05 scene is near, since the scene needs its words */
+  let lastY = window.scrollY, tucked = false;
+  function tuckBar(y) {
+    const dy = y - lastY;
+    lastY = y;
+    const sceneNear = (y - (S[4].top - HEADER)) / sceneDist > -0.6;
+    if (!mqSmall.matches || sceneNear || y < 40) tucked = false;
+    else if (dy > 6) tucked = true;
+    else if (dy < -6) tucked = false;
+    pbar.classList.toggle('is-tucked', tucked);
   }
   const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -280,6 +297,13 @@
   }
   cycler(rt1, $('#s01-h'));
   cycler(rt2, $('#s03-h'));
+
+  /* inline triggers are spans with role="button" so they wrap like text; give them button keys */
+  document.addEventListener('keydown', (e) => {
+    const t = e.target;
+    if (!(t instanceof HTMLElement) || t.tagName === 'BUTTON' || t.getAttribute('role') !== 'button') return;
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); t.click(); }
+  });
 
   /* ================= term swaps ================= */
   const swaps = {};
@@ -464,7 +488,12 @@
     const j = clamp(i + (e.key === 'ArrowRight' ? 1 : -1), 0, cardBtns.length - 1);
     cardBtns[j].focus();
   });
-  TOP.rise($$('.pc', track), 80);
+  // reveal the whole row together: cards off to the side never intersect the viewport on their own
+  const pcs = $$('.pc', track);
+  pcs.forEach((el, i) => { el.classList.add('rise'); el.style.setProperty('--i', i); el.style.setProperty('--stagger', '80ms'); });
+  new IntersectionObserver(([e], io) => {
+    if (e.isIntersecting) { pcs.forEach((el) => el.classList.add('in')); io.disconnect(); }
+  }, { threshold: 0.12 }).observe(track);
 
   /* ================= consent case: say it honestly ================= */
   const honest = $('#honest');

@@ -41,6 +41,13 @@ body.landing {
   .lnav-links a { padding: 0 var(--s2); }
   .lnav-links a > span { display: none; }
 }
+@media (max-width: 480px) {
+  .sheet-ctas .btn { flex: 1 1 100%; padding-left: var(--s4); padding-right: var(--s4); font-size: 13px; letter-spacing: .02em; }
+}
+@media (max-width: 359.98px) {
+  .lnav { justify-content: flex-end; }
+  .lnav-mark { display: none; }
+}
 
 /* ---------- stage ---------- */
 .stage { position: relative; min-height: 0; min-width: 0; }
@@ -219,11 +226,11 @@ body.landing {
     position: relative; left: auto; top: auto; transform: none;
     width: auto; margin: -72px var(--margin) var(--s6);
   }
-  .counter { position: sticky; bottom: 0; flex-wrap: wrap; gap: var(--s2) var(--s4); padding-top: var(--s3); padding-bottom: calc(var(--s3) + env(safe-area-inset-bottom)); }
-  .counter-label { flex-basis: 100%; font-size: 11px; }
-  .counter-cells { margin-left: 0; gap: 3px; }
-  .counter-cells li { width: 8px; height: 12px; }
-  .counter-count { margin-left: auto; }
+  .counter { position: sticky; bottom: 0; min-height: 0; gap: var(--s3); padding-top: 10px; padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
+  .counter-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .counter-cells { flex: 1 1 auto; min-width: 0; margin-left: 0; gap: 2px; }
+  .counter-cells li { flex: 1 1 0; max-width: 10px; height: 12px; }
+  .counter-count { margin-left: auto; font-size: 11px; }
   .wpop {
     left: 0 !important; right: 0; top: auto !important; bottom: 0;
     width: 100%; max-width: none; max-height: 82vh; overflow: auto;

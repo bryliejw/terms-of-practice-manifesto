@@ -44,3 +44,6 @@
 
   --header: 84px;
 }
+@media (max-width: 599.98px) {
+  :root { --header: 68px; }
+}
