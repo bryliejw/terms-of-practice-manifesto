@@ -17,7 +17,7 @@
     { "word": "Agreement", "note": "Values we never agreed to." }
   ],
 
-  "consentTitles": ["a conversion.", "a consent rate.", "paperwork.", "acceptance."],
+  "consentTitles": ["a conversion.", "a metric.", "a checkbox.", "a formality.", "a rate to raise.", "friction to reduce."],
 
   "swaps": {
     "users": { "r": "people, named by what they do for the product", "term": "01" },

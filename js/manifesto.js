@@ -109,8 +109,8 @@
   }
 
   /* ================= position bar ================= */
-  const SENT_A = 'We can’t make the big changes straight away,';
-  const SENT_B = 'but securing our place in the field shouldn’t require us to conform or suppress our values.';
+  const SENT_A = 'We won’t make the big changes straight away,';
+  const SENT_B = 'but we don’t have to conform and suppress all of our values to secure our authority in the field.';
   const WORDS_B = SENT_B.split(' ');
   const pbar = $('#pbar');
   const pbS = $('#pbar-s');

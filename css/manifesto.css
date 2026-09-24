@@ -239,7 +239,7 @@ body.manifesto {
 .s02 .g12.body-copy { margin-top: var(--s8); }
 
 .ptrack-wrap { margin: var(--s9) 0 var(--s8); }
-.ptrack-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s4); }
+.ptrack-head { display: flex; align-items: flex-end; justify-content: flex-end; gap: var(--s4); }
 .ptrack-ctrl { display: flex; gap: var(--s2); flex: none; }
 .ptrack-arrow {
   width: 44px; height: 44px; display: grid; place-items: center;
@@ -527,6 +527,8 @@ body.manifesto {
 .foot { margin-top: var(--s9); padding: var(--s6) 0 calc(var(--s6) + 84px); border-top: 1px solid var(--ink-2); }
 .foot-in { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s4); color: var(--scan); }
 .foot-mark { font-style: italic; font-size: 22px; color: var(--white); }
+.foot-meta { display: flex; flex-direction: column; gap: var(--s1); text-align: right; }
+.foot-name { font: 700 15px/1.3 var(--mono); color: var(--white); }
 
 /* ================= position bar ================= */
 .pbar {
@@ -594,12 +596,12 @@ body.manifesto {
   .cl-claim, .cl-com { grid-column: 1; }
   .cl-land { text-align: left; }
   .pc { flex-basis: min(340px, 82vw); }
-  .ptrack-head { flex-direction: column; align-items: flex-start; }
   .pbar { gap: var(--s3); min-height: 72px; }
   .pbar-chip { display: none; }
   .pbar-s { font-size: 16px; line-height: 1.35; }
   .pbar-go { padding: var(--s2) var(--s3); font-size: 12px; }
   .foot-in { flex-direction: column; }
+  .foot-meta { text-align: left; }
   .claim { max-width: none; }
 }
 @media (max-width: 599.98px) {
